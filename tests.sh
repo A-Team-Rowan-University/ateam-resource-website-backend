@@ -19,8 +19,8 @@ function insert_users {
 function insert_tests {
 
     echo
-    echo Inserting questios
-    cat test_questions.csv| awk -f ./format_questions.awk |
+    echo Inserting questions
+    cat test_questions.csv | awk -f ./format_questions.awk |
         parallel -d "\n\n" curl --data {} -H id_token:$ID_TOKEN $URL/question_categories/
 
     echo

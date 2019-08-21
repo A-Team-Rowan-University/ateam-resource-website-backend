@@ -9,7 +9,7 @@
 #
 
 BEGIN {
-    FS = "\t"
+    FS = ","
 }
 
 # New category
@@ -18,7 +18,7 @@ $2 == "" {
         print "]}\n\n"
     }
 
-    print "{\"title\":" $1 ", \"questions\": ["
+    print "{\"title\":\"" $1 "\", \"questions\": ["
 
     cend = 1
     qend = 0
@@ -29,11 +29,11 @@ $2 != "" {
     if (qend) {
         print ","
     }
-    print "{ \"title\":" $1 ","
-    print "\"correct_answer\":" $2 ","
-    print "\"incorrect_answer_1\":" $3 ","
-    print "\"incorrect_answer_2\":" $4 ","
-    print "\"incorrect_answer_3\":" $5
+    print "{ \"title\": \"" $1 "\","
+    print "\"correct_answer\":\"" $2 "\","
+    print "\"incorrect_answer_1\":\"" $3 "\","
+    print "\"incorrect_answer_2\":\"" $4 "\","
+    print "\"incorrect_answer_3\":\"" $5 "\""
     print "}"
 
     qend = 1
